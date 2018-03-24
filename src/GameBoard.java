@@ -24,11 +24,14 @@ public class GameBoard {
         }
     }
 
+
     /**
      * Metoda ktora sprawdza czy na danej pozycji mozna postawic znak
      */
-    public boolean isValidMove(String position, char playerSign) {
-        int number = Integer.parseInt(position);
+    public boolean isValidMove(int number) {
+        if (number < 0 || number > 8) {
+            return false;
+        }
         int row = number / 3;
         int col = number % 3;
         return board[row][col] == 0;
